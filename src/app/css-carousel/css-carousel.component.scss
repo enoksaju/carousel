@@ -1,0 +1,120 @@
+@mixin responsiveText($size, $unidad: em) {
+  margin: 0px;
+  padding: #{$size * 0.8}$unidad #{$size * 0.3}$unidad;
+
+  @media screen and (max-width: 599px) {
+    font-size: #{$size}$unidad;
+  }
+  @media screen and (min-width: 600px) and (max-width: 959px) {
+    font-size: #{$size * 1.5}$unidad;
+  }
+  @media screen and (min-width: 960px) and (max-width: 1279px) {
+    font-size: #{$size * 2}$unidad;
+  }
+  @media screen and (min-width: 1280px) and (max-width: 1919px) {
+    font-size: #{$size * 2.5}$unidad;
+  }
+  @media screen and (min-width: 1920px) and (max-width: 5000px) {
+    font-size: #{$size * 3}$unidad;
+  }
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  max-height: 100vh;
+  position: relative;
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.slides {
+  list-style: none;
+  position: relative;
+  overflow: hidden; /* Clear floats */
+  padding: 0px;
+  margin: 0px;
+  left: 0px;
+}
+.slides > li {
+  position: relative;
+  float: left;
+  //width: 20%; /* 100 / number of panes */
+  max-height: 100vh;
+}
+
+%btn {
+  background-color: transparent; /* Blue background */
+  border: none; /* Remove borders */
+  color: rgba(0, 0, 0, 0.3); /* White text */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  & svg {
+    padding: 0;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    -webkit-transition: width 0.2s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.2s;
+    &:hover {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.carousel .btn {
+  &-prev {
+    @extend %btn;
+    top: 0;
+    bottom: 0;
+  }
+  &-next {
+    @extend %btn;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+$rgba-color: rgb(255, 255, 255);
+
+.carousel .content {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  font-family: 'Arial', sans-serif;
+  .title {
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba($rgba-color, 0.9);
+    font-weight: bold;
+    @include responsiveText(0.6);
+  }
+  .text-content {
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba($rgba-color, 0.6);
+    @include responsiveText(0.52);
+  }
+}

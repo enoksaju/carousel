@@ -1,0 +1,35 @@
+
+.main {
+  background: red;
+}
+
+.main-toolbar {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  .toobar-content {
+    height: 100%;
+    .mat-button {
+      height: 100%;
+      font-size: 18px;
+    }
+    .menuitem {
+      height: 100%;
+      font-size: 18px;
+    }
+  }
+  .filltoolbarspacer {
+    flex: 1 1 auto;
+  }
+}
+// .mat-form-field-wrapper{
+//   height: 60px!important;
+// }
+.mysidenav {
+  top: 65px !important;
+  width: 250px;
+  position: fixed;
+  @media screen and (max-width: 599px) {
+    top: 56px !important;
+  }
+}
